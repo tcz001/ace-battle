@@ -109,22 +109,22 @@ class ImageInfo_ans:
 # this will have the image of apps
 
 gapps_info = ImageInfo_ans([45, 45], [90, 90], 40, "gapps")
-gapps_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/gapps_asteroid.png")
+gapps_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/gapps_asteroid.png")
 
 jigsaw_info = ImageInfo_ans([45, 45], [90, 90], 40, "jigsaw")
-jigsaw_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/jigsaw_asteroid.png")
+jigsaw_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/jigsaw_asteroid.png")
 
 mytw_info = ImageInfo_ans([45, 45], [90, 90], 40, "mytw")
-mytw_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/mytw_asteroid.png")
+mytw_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/mytw_asteroid.png")
 
 ourtw_info = ImageInfo_ans([45, 45], [90, 90], 40, "ourtw")
-ourtw_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/our_asteroid_blue.png")
+ourtw_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/our_asteroid_blue.png")
 
 avature_info = ImageInfo_ans([45, 45], [90, 90], 40, "avature")
-avature_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/avature_asteroid.png")
+avature_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/avature_asteroid.png")
 
 peoplesoft_info = ImageInfo_ans([45, 45], [90, 90], 40, "peoplesoft")
-peoplesoft_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/people_soft_asteroid.png")
+peoplesoft_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/people_soft_asteroid.png")
 
 # ******************** new pics  helpDesk-expensify-projectManager
 # ******************** new pics  helpDesk_info, expensify_info, projectManager_info
@@ -143,7 +143,7 @@ projectManager_image = simplegui.load_image("http://image2.maiyadi.com/AppleImag
 # debris in space images *********** background - rocks
 debris_info = ImageInfo([320, 240], [640, 480])
 #origin one
-#debris_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/debris4_blue.png")
+#debris_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/debris4_blue.png")
 #new one
 #debris_image = simplegui.load_image("http://picapi.ooopic.com/10/62/79/48b1OOOPIC50.jpg")
 debris_image = simplegui.load_image("")
@@ -155,34 +155,34 @@ nebula_image = simplegui.load_image("http://pic3.bbzhi.com/xitongbizhi/jingmeiyu
 
 # splash image *********** main menu
 splash_info = ImageInfo([200, 200], [400, 400])
-splash_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/splashscreen.png")
+splash_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/splashscreen.png")
 
 # splash screen for the winner image *********** say "You Won"
 winner_info = ImageInfo([200, 150], [400, 300])
-winner_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/winner.png")
+winner_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/winner.png")
     
 # ship image *********** space ship
 ship_info = ImageInfo([45, 45], [90, 90], 35)
-ship_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/double_ship.png")
+ship_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/double_ship.png")
 
 # missile image - shot1.png, shot2.png, shot3.png *********** 
 missile_info = ImageInfo([5,5], [10, 10], 3, 50)
-missile_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/shot2.png")
+missile_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/shot2.png")
 
 # asteroid images - asteroid_blue.png, asteroid_brown.png, asteroid_blend.png *********** 
 asteroid_info = ImageInfo([45, 45], [90, 90], 40)
-asteroid_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/asteroid_blue.png")
+asteroid_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/asteroid_blue.png")
 
 # animated explosion - explosion_orange.png, explosion_blue.png, explosion_blue2.png, explosion_alpha.png
 explosion_info = ImageInfo([64, 64], [128, 128], 17, 24, True)
-explosion_image = simplegui.load_image("https://dl.dropboxusercontent.com/u/54846026/explosion_alpha.png")
+explosion_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/explosion_alpha.png")
 
 # sound assets purchased from sounddogs.com, please do not redistribute
-soundtrack = simplegui.load_sound("https://dl.dropboxusercontent.com/u/54846026/soundtrack.mp3")
-missile_sound = simplegui.load_sound("https://dl.dropboxusercontent.com/u/54846026/missile.mp3")
+soundtrack = simplegui.load_sound("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/soundtrack.mp3")
+missile_sound = simplegui.load_sound("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/missile.mp3")
 missile_sound.set_volume(.5)
-ship_thrust_sound = simplegui.load_sound("https://dl.dropboxusercontent.com/u/54846026/thrust.mp3")
-explosion_sound = simplegui.load_sound("https://dl.dropboxusercontent.com/u/54846026/explosion.mp3")
+ship_thrust_sound = simplegui.load_sound("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/thrust.mp3")
+explosion_sound = simplegui.load_sound("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/explosion.mp3")
 
 # helper functions to handle transformations
 def angle_to_vector(ang):
