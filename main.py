@@ -130,13 +130,13 @@ peoplesoft_image = simplegui.load_image("https://raw.githubusercontent.com/tcz00
 # ******************** new pics  helpDesk_info, expensify_info, projectManager_info
 # ******************** new pics  helpDesk_image, expensify_image, projectManager_image
 helpDesk_info = ImageInfo_ans([45, 45], [90, 90], 40, "helpDesk")
-helpDesk_image = simplegui.load_image("http://www.photoshop.org.cn/logo/04/images/HelpDesk__36085.jpg")
+helpDesk_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/HelpDesk.jpg")
 
 expensify_info = ImageInfo_ans([45, 45], [90, 90], 40, "expensify")
-expensify_image = simplegui.load_image("http://dimgcn3.s-msn.com/imageadapter/app.msn.com.cn/marketplace/images/d098/7a76-7e8d-9fa9-1a8e-56fffea72db1.png")
+expensify_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/expensify.png")
 
 projectManager_info = ImageInfo_ans([45, 45], [90, 90], 40, "projectManager")
-projectManager_image = simplegui.load_image("http://image2.maiyadi.com/AppleImages/0x0/0/79/79670.175x175-75.jpg")
+projectManager_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/ProjectManager.jpg")
 # ******************** new pics
 
 
@@ -151,7 +151,7 @@ debris_image = simplegui.load_image("")
 
 # nebula images - nebula_brown.png, nebula_blue.png *********** background - space
 nebula_info = ImageInfo([400, 300], [800, 600])
-nebula_image = simplegui.load_image("http://pic3.bbzhi.com/xitongbizhi/jingmeiyuzhouwaitaikongshejikuan/computer_kuan_347878_9.jpg")
+nebula_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/background.jpg")
 
 # splash image *********** main menu
 splash_info = ImageInfo([200, 200], [400, 400])
