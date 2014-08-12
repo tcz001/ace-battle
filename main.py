@@ -10,8 +10,8 @@ import math
 import random
 
 # globals for user interface
-width = 800
-height = 600
+width = 1440
+height = 900
 score = 0
 lives = 7
 time = 0
@@ -303,11 +303,13 @@ class Ship:
         # update velocity
         if self.thrust:
             acc = angle_to_vector(self.angle)
-            self.vel[0] += acc[0] * .1
-            self.vel[1] += acc[1] * .1
-            
-        self.vel[0] *= .99
-        self.vel[1] *= .99
+            # self.vel[0] += acc[0] * .1
+            self.vel[0] = acc[0] * 10
+            # self.vel[1] += acc[1] * .1
+            self.vel[1] = acc[1] * 10
+
+        self.vel[0] *= .5
+        self.vel[1] *= .5
 
     def set_thrust(self, on):
         self.thrust = on
@@ -510,10 +512,10 @@ def draw(canvas):
         canvas.draw_image(debris_image, [size[0]-wtime, center[1]], [2*wtime, size[1]], [1.25*wtime, height/2], [2.5*wtime, height])
 
     # draw UI
-    canvas.draw_text("Lives", [50, 550], 30, "White")
-    canvas.draw_text("Score", [680, 550], 30, "White")
-    canvas.draw_text(str(lives), [50, 580], 30, "White")
-    canvas.draw_text(str(score), [680, 580], 30, "White")
+    canvas.draw_text("Lives", [50, 850], 30, "White")
+    canvas.draw_text("Score", [1380, 850], 30, "White")
+    canvas.draw_text(str(lives), [50, 880], 30, "White")
+    canvas.draw_text(str(score), [1380, 880], 30, "White")
     
     #Tutorial
     if global_timer <3 and started:
@@ -663,57 +665,4 @@ timer0.start()
 timer1.start()
 timer2.start()
 frame.start()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #==============End======================
-
