@@ -20,23 +20,26 @@ max_score = 500
 
 
 answer = ""
-q1 = "Which SaaS app is going to complete 4 years in TW?"
-q2 = "Where can you find domain/language expert within TW?"
-q3 = "Which system is the TW social collabration platform?"
-q4 = "What is our current TnE system known as?"
-q5 = "Where do we host our job openings?"
-q6 = "Which system is responsible for paying your expenses?"
+q1 = "Which app is going to complete 14 years in TW?"
+q2 = "Where can you find Project Preference of employee within TW?"
+q3 = "Which system is the primary Invoicing System in TW?"
+q4 = "Which system is based on Jive?"
+q5 = "Overview, Activity, Inbox, Action - Refer to which app?"
+q6 = "Which system is responsible for paying our vendors?"
 q7 = "Which system we use Transfer Employees to different Location?"
 q8 = "Where do you find TWer with similiar skill set as yours?"
-q9 = "How do you find what projects Carlos has worked on?"
-q10 ="We don't read TechOps instructions,this was inferred after launch of system?"
-q11 ="Who should you head to if we can't not submit timecard?"
-q12 ="Who should you head to if you lose your loptap?"
-q13 ="Who should you head to if you need software license?"
-q14 ="Where can you reimburse your expense?"
+q9 = "How do you find what projects Zhen Yang has worked on?"
+q10 ="Techops delivery team in Xian works on which app?"
+q11 ="Who should you head to if we want correction in timecard?"
+q12 ="Who should you head to if you want GTM account?"
+q13 ="Who should you head to if you need return MS Office license?"
+q14 ="Where can you scan receipt and submit your expense?"
 q15 ="Who needs to do weekly review for timecards?"
+q16= "Which open source tool was born in Techops ?"
+q17 ="Go Figure , Cube are under which product line ?"
+q18 = " What replaced GAB ?"
 
-questions = { q1: "gapps", q2: "jigsaw", q3: "mytw", q4: "ourtw", q5: "avature", q6: "peoplesoft", q7: "peoplesoft", q8: "jigsaw", q9: "jigsaw", q10: "ourtw", q11: "helpDesk", q12: "helpDesk", q13: "helpDesk", q14: "expensify", q15: "projectManager"}
+questions = { q1: "peoplesoft", q2: "jigsaw", q3: "ourtw", q4: "mytw", q5: "myTW", q6: "peoplesoft", q7: "peoplesoft", q8: "jigsaw", q9: "jigsaw", q10: "ourtw", q11: "helpDesk", q12: "helpDesk", q13: "helpDesk", q14: "expensify", q15: "projectManager",q16: "Selenium", q17: "OI",q18: "Contacts"}
 questions_list = questions.keys()
 
 #shuffling the questions
@@ -127,16 +130,25 @@ peoplesoft_info = ImageInfo_ans([45, 45], [90, 90], 40, "peoplesoft")
 peoplesoft_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/people_soft_asteroid.png")
 
 # ******************** new pics  helpDesk-expensify-projectManager
-# ******************** new pics  helpDesk_info, expensify_info, projectManager_info
-# ******************** new pics  helpDesk_image, expensify_image, projectManager_image
+# ******************** new pics  helpDesk_info, expensify_info, projectManager_info, selenium_info, OI_info, contacts_info
+# ******************** new pics  helpDesk_image, expensify_image, projectManager_image, selenium_image, OI_image, contacts_image
 helpDesk_info = ImageInfo_ans([45, 45], [90, 90], 40, "helpDesk")
-helpDesk_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/HelpDesk.jpg")
+helpDesk_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/helpdesk_rock.png")
 
 expensify_info = ImageInfo_ans([45, 45], [90, 90], 40, "expensify")
-expensify_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/expensify.png")
+expensify_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/expensify_rock.png")
 
 projectManager_info = ImageInfo_ans([45, 45], [90, 90], 40, "projectManager")
-projectManager_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/ProjectManager.jpg")
+projectManager_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/pm_rock.png")
+
+selenium_info = ImageInfo_ans([45, 45], [90, 90], 40, "Selenium")
+selenium_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/selenium_rock.png")
+
+OI_info = ImageInfo_ans([45, 45], [90, 90], 40, "OI")
+OI_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/OI_rock.png")
+
+contacts_info = ImageInfo_ans([45, 45], [90, 90], 40, "Contacts")
+contacts_image = simplegui.load_image("https://raw.githubusercontent.com/tcz001/ace-battle/master/assets/contact_rock.png")
 # ******************** new pics
 
 
@@ -261,8 +273,8 @@ def reset():
     rock_group = set([])
     explosion_group = set([])
     ans_group = set([])
-    app_image_list = [gapps_image, jigsaw_image, mytw_image, ourtw_image, avature_image, peoplesoft_image, helpDesk_image, expensify_image, projectManager_image]
-    app_info_list = [gapps_info, jigsaw_info, mytw_info, ourtw_info, avature_info, peoplesoft_info, helpDesk_info, expensify_info, projectManager_info]
+    app_image_list = [gapps_image, jigsaw_image, mytw_image, ourtw_image, avature_image, peoplesoft_image, helpDesk_image, expensify_image, projectManager_image, selenium_image, OI_image, contacts_image]
+    app_info_list = [gapps_info, jigsaw_info, mytw_info, ourtw_info, avature_info, peoplesoft_info, helpDesk_info, expensify_info, projectManager_info, selenium_info, OI_info, contacts_info]
     question_list_index = 0
     user_ans = ""
     timer0.stop()
@@ -633,8 +645,8 @@ missile_group = set([])
 rock_group = set([])
 explosion_group = set([])
 ans_group = set([])
-app_image_list = [gapps_image, jigsaw_image, mytw_image, ourtw_image, avature_image, peoplesoft_image, peoplesoft_image, jigsaw_image, jigsaw_image, ourtw_image, helpDesk_image, expensify_image, projectManager_image]
-app_info_list = [gapps_info, jigsaw_info, mytw_info, ourtw_info, avature_info, peoplesoft_info, peoplesoft_info, jigsaw_info, jigsaw_info, ourtw_info, helpDesk_info, expensify_info, projectManager_info]
+app_image_list = [gapps_image, jigsaw_image, mytw_image, ourtw_image, avature_image, peoplesoft_image, peoplesoft_image, jigsaw_image, jigsaw_image, ourtw_image, helpDesk_image, expensify_image, projectManager_image, selenium_image, OI_image, contacts_image]
+app_info_list = [gapps_info, jigsaw_info, mytw_info, ourtw_info, avature_info, peoplesoft_info, peoplesoft_info, jigsaw_info, jigsaw_info, ourtw_info, helpDesk_info, expensify_info, projectManager_info, selenium_info, OI_info, contacts_info]
 question_list_index = 0
 user_ans = ""
 global_timer = 0
