@@ -12,8 +12,6 @@ import random
 # globals for user interface
 width = 1440
 height = 900
-score = 0
-lives = 7
 time = 0
 started = False
 max_score = 500
@@ -74,7 +72,7 @@ class ImageInfo:
     def get_animated(self):
         return self.animated
 
-#Calss to store Image information and name    
+#Calss to store Image information and name
 class ImageInfo_ans:
     def __init__(self, center, size, radius, name, lifespan = None, animated = False):
         
@@ -244,29 +242,29 @@ def group_group_collide_ans(ans_group, missile_group):
         for missile in missile_group:
             if ans.collide(missile):
                 user_ans = ans.get_ans_name()
-             
+
                 # now we want to see if the ans given by user is the same as the ans in index
                 if user_ans == questions[questions_list[question_list_index]]:
-                    
+
                     # after taking the name of the ans astroid, we remove it from the screen
                     ans_group.remove(ans)
-                    
+
                     score += 100
                     # we then move on to another question
                     question_list_index += 1
-                    
+
                 else:
                     score -= 50
-                    
-                   
+
+
                 missile_group.remove(missile)
                 explosion_group.add(Sprite(ans.get_pos(),[0, 0], 0, 0, explosion_image, explosion_info, explosion_sound))
-                
-    return ans_group 
-                
+
+    return ans_group
+
 def reset():
     #Helper function to reset the game
-    global started, my_ship, missile_group, rock_group, ans_group, explosion_group, app_image_list, app_info_list, question_list_index, user_ans
+    global started, my_ship, missile_group, rock_group, ans_group, explosion_group, app_image_list, app_info_list, question_list_index, user_ans, score, lives
     # Brining the ship to center of the screen when the game is reset
     my_ship = Ship([width / 2, height / 2], [0, 0], 0, ship_image, ship_info)
     missile_group = set([])
@@ -277,10 +275,16 @@ def reset():
     app_info_list = [gapps_info, jigsaw_info, mytw_info, ourtw_info, avature_info, peoplesoft_info, helpDesk_info, expensify_info, projectManager_info, selenium_info, OI_info, contacts_info]
     question_list_index = 0
     user_ans = ""
-    timer0.stop()
-    timer1.stop()
-    timer2.stop()
-       
+    score = 0
+    lives = 1
+    global timer0, timer1, timer2, global_timer
+    timer0 = simplegui.create_timer(1000.0, global_time_update)
+    timer1 = simplegui.create_timer(1000.0, rock_spawner)
+    # loading the answers after 10secs
+    timer2 = simplegui.create_timer(2000.0, ans_spawner)
+    # initialize stuff
+    global_timer = 0
+
 # Ship class to create ship objects
 class Ship:
 
@@ -341,7 +345,7 @@ class Ship:
         global missile_group
         forward = angle_to_vector(self.angle)
         missile_pos = [self.pos[0] + self.radius * forward[0], self.pos[1] + self.radius * forward[1]]
-        missile_vel = [self.vel[0] + 6 * forward[0], self.vel[1] + 6 * forward[1]]
+        missile_vel = [self.vel[0] + 15 * forward[0], self.vel[1] + 15 * forward[1]]
         missile_group.add (Sprite(missile_pos, missile_vel, self.angle, 0, missile_image, missile_info, missile_sound))
         
     def get_pos(self):
@@ -505,8 +509,6 @@ def click(pos):
     inheight = (center[1] - size[1] / 2) < pos[1] < (center[1] + size[1] / 2)
     if (not started) and inwidth and inheight:
         started = True
-        score = 0
-        lives = 7
         soundtrack.play()
 
 # the crux of the code which runs everthing
@@ -525,10 +527,10 @@ def draw(canvas):
 
     # draw UI
     canvas.draw_text("Lives", [50, 850], 30, "White")
-    canvas.draw_text("Score", [1380, 850], 30, "White")
+    canvas.draw_text("Score", [1320, 850], 30, "White")
     canvas.draw_text(str(lives), [50, 880], 30, "White")
-    canvas.draw_text(str(score), [1380, 880], 30, "White")
-    
+    canvas.draw_text(str(score), [1320, 880], 30, "White")
+
     #Tutorial
     if global_timer <3 and started:
         canvas.draw_text("Welcome to the mission!", [20, 25], 30, "White")
@@ -569,9 +571,9 @@ def draw(canvas):
     
     if not started:
         soundtrack.rewind()
-    
-    if lives == 0:
-        reset()
+
+    if lives <= 0:
+        stop()
         canvas.draw_text("Game Over", [200, 70], 70, "Red")
         canvas.draw_text("Game by Venu Murthy", [200, 350], 30, "Red")
         canvas.draw_text("Thanks to ", [200, 400], 30, "Red")
@@ -607,21 +609,21 @@ class converter():
         return self.text
     def __add__(self, other):
         return str(self) + other
-        
+
 #timer handler that will spawn the answers on the screen        
 def ans_spawner():
     global ans_group, app_list
     ans_pos = [random.randrange(0, width), random.randrange(0, height)]
     ans_vel = [random.random() * .6 - .3, random.random() * .6 - .3]
     ans_avel = 0
-    
+
     # we will not rotate the answers
     # they are spawned 100 pixels away from ship
     if app_image_list and app_info_list and dist(ans_pos, my_ship.get_pos()) > 100 and started:
         app_image = app_image_list.pop(0)
         app_info = app_info_list.pop(0)
-        ans_group.add(Sprite_ans(ans_pos, ans_vel, 0, ans_avel, app_image, app_info))    
-        
+        ans_group.add(Sprite_ans(ans_pos, ans_vel, 0, ans_avel, app_image, app_info))
+
 # Helper to exit program gracefully and silently
 def exit_program():
     timer0.stop()
@@ -635,46 +637,34 @@ def global_time_update():
         global global_timer
         global_timer += 1
         print global_timer
-    
-# initialize stuff
-frame = simplegui.create_frame("TechOps Rocks!", width, height, 0)
-
-# initialize ship and two sprites and the info about the images
-my_ship = Ship([width / 2, height / 2], [0, 0], 0, ship_image, ship_info)
-missile_group = set([])
-rock_group = set([])
-explosion_group = set([])
-ans_group = set([])
-app_image_list = [gapps_image, jigsaw_image, mytw_image, ourtw_image, avature_image, peoplesoft_image, peoplesoft_image, jigsaw_image, jigsaw_image, ourtw_image, helpDesk_image, expensify_image, projectManager_image, selenium_image, OI_image, contacts_image]
-app_info_list = [gapps_info, jigsaw_info, mytw_info, ourtw_info, avature_info, peoplesoft_info, peoplesoft_info, jigsaw_info, jigsaw_info, ourtw_info, helpDesk_info, expensify_info, projectManager_info, selenium_info, OI_info, contacts_info]
-question_list_index = 0
-user_ans = ""
-global_timer = 0
 
 
+def stop():
+    timer0.stop()
+    timer1.stop()
+    timer2.stop()
 
-# register handlers
-frame.set_keyup_handler(keyup)
-frame.set_keydown_handler(keydown)
-frame.set_mouseclick_handler(click)
-frame.set_draw_handler(draw)
 
-#frame.add_label("To quit")
-frame.add_label(" ")
-frame.add_button("Quit", exit_program)
-frame.add_label(" ")
-#frame.add_label("------------------------")
-frame.add_label("")
-#frame.add_label("------------------------")
+def start():
+    timer0.start()
+    timer1.start()
+    timer2.start()
 
-timer0 = simplegui.create_timer(1000.0, global_time_update)
 
-timer1 = simplegui.create_timer(1000.0, rock_spawner)
-#loading the answers after 10secs
-timer2 = simplegui.create_timer(2000.0, ans_spawner)
-# get things rolling
-timer0.start()
-timer1.start()
-timer2.start()
-frame.start()
-#==============End======================
+def init():
+    global frame
+    frame = simplegui.create_frame("TechOps Rocks!", width, height, 0)
+    # initialize ship and two sprites and the info about the images
+    reset()
+    # register handlers
+    frame.set_keyup_handler(keyup)
+    frame.set_keydown_handler(keydown)
+    frame.set_mouseclick_handler(click)
+    frame.set_draw_handler(draw)
+    # frame buttons
+    frame.add_button("Quit", exit_program)
+    frame.add_button("Replay", reset)
+    frame.start()
+
+init()
+start()
