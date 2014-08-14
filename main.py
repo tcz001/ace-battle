@@ -10,8 +10,8 @@ import math
 import random
 
 # globals for user interface
-width = 1440
-height = 900
+width = 1024
+height = 768
 time = 0
 started = False
 max_score = 500
@@ -276,7 +276,7 @@ def reset():
     question_list_index = 0
     user_ans = ""
     score = 0
-    lives = 1
+    lives = 7
     global timer0, timer1, timer2, global_timer
     timer0 = simplegui.create_timer(1000.0, global_time_update)
     timer1 = simplegui.create_timer(1000.0, rock_spawner)
@@ -526,10 +526,10 @@ def draw(canvas):
         canvas.draw_image(debris_image, [size[0]-wtime, center[1]], [2*wtime, size[1]], [1.25*wtime, height/2], [2.5*wtime, height])
 
     # draw UI
-    canvas.draw_text("Lives", [50, 850], 30, "White")
-    canvas.draw_text("Score", [1320, 850], 30, "White")
-    canvas.draw_text(str(lives), [50, 880], 30, "White")
-    canvas.draw_text(str(score), [1320, 880], 30, "White")
+    canvas.draw_text("Lives", [50, height-50], 30, "White")
+    canvas.draw_text("Score", [width-100, height-50], 30, "White")
+    canvas.draw_text(str(lives), [50, height-30], 30, "White")
+    canvas.draw_text(str(score), [width-100, height-30], 30, "White")
 
     #Tutorial
     if global_timer <3 and started:
@@ -650,6 +650,9 @@ def start():
     timer1.start()
     timer2.start()
 
+def replay():
+    reset()
+    start()
 
 def init():
     global frame
@@ -663,7 +666,7 @@ def init():
     frame.set_draw_handler(draw)
     # frame buttons
     frame.add_button("Quit", exit_program)
-    frame.add_button("Replay", reset)
+    frame.add_button("Replay", replay)
     frame.start()
 
 init()
