@@ -247,7 +247,8 @@ def group_group_collide_ans(ans_group, missile_group):
                 if user_ans == questions[questions_list[question_list_index]]:
 
                     # after taking the name of the ans astroid, we remove it from the screen
-                    ans_group.remove(ans)
+                    # ans_group.remove(ans)
+                    ans.random()
 
                     score += 100
                     # we then move on to another question
@@ -470,7 +471,12 @@ class Sprite_ans:
     #method to return the name of the file
     def get_ans_name(self):
         return self.name
-    
+
+    def random(self):
+        # update position
+        self.pos[0] = random.randint(0, width)
+        self.pos[1] = random.randint(0, height)
+
     def collide(self, other_object):
         
         # Return True if there is a collision else false by using distance between Sprite and ship
