@@ -651,6 +651,7 @@ def start():
     timer2.start()
 
 def replay():
+    stop()
     reset()
     start()
 
