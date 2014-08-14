@@ -280,7 +280,7 @@ def reset():
     lives = 7
     global timer0, timer1, timer2, global_timer
     timer0 = simplegui.create_timer(1000.0, global_time_update)
-    timer1 = simplegui.create_timer(1000.0, rock_spawner)
+    timer1 = simplegui.create_timer(2000.0, rock_spawner)
     # loading the answers after 10secs
     timer2 = simplegui.create_timer(2000.0, ans_spawner)
     # initialize stuff
