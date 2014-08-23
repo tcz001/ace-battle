@@ -10,8 +10,8 @@ import math
 import random
 
 # globals for user interface
-width = 1024
-height = 768
+width = 1500
+height = 800
 time = 0
 started = False
 max_score = 500
@@ -21,23 +21,23 @@ answer = ""
 q1 = "Which app is going to complete 14 years in TW?"
 q2 = "Where can you find Project Preference of employee within TW?"
 q3 = "Which system is the primary Invoicing System in TW?"
-q4 = "Which system is based on Jive?"
+q4 = "Which system is based on Jive? MyTW or OurTW ?"
 q5 = "Overview, Activity, Inbox, Action - Refer to which app?"
-q6 = "Which system is responsible for paying our vendors?"
-q7 = "Which system we use Transfer Employees to different Location?"
+q6 = "Which system is responsible for paying our vendors? PeopleSoft Or OurTW ?"
+q7 = "Which system we use Transfer Employees to different Location? Jigsaw ? Peoplesoft"
 q8 = "Where do you find TWer with similiar skill set as yours?"
 q9 = "How do you find what projects Zhen Yang has worked on?"
 q10 ="Techops delivery team in Xian works on which app?"
-q11 ="Who should you head to if we want correction in timecard?"
+q11 ="Who should you head to if we want correction in timecard? PM or 8600 ?"
 q12 ="Who should you head to if you want GTM account?"
 q13 ="Who should you head to if you need return MS Office license?"
 q14 ="Where can you scan receipt and submit your expense?"
 q15 ="Who needs to do weekly review for timecards?"
 q16= "Which open source tool was born in Techops ?"
 q17 ="Go Figure , Cube are under which product line ?"
-q18 = " What replaced GAB ?"
+q18 = " What replaced GAB as our yellow pages?"
 
-questions = { q1: "peoplesoft", q2: "jigsaw", q3: "ourtw", q4: "mytw", q5: "myTW", q6: "peoplesoft", q7: "peoplesoft", q8: "jigsaw", q9: "jigsaw", q10: "ourtw", q11: "helpDesk", q12: "helpDesk", q13: "helpDesk", q14: "expensify", q15: "projectManager",q16: "Selenium", q17: "OI",q18: "Contacts"}
+questions = { q1: "peoplesoft", q2: "jigsaw", q3: "ourtw", q4: "mytw", q5: "mytw", q6: "peoplesoft", q7: "peoplesoft", q8: "jigsaw", q9: "jigsaw", q10: "ourtw", q11: "helpDesk", q12: "helpDesk", q13: "helpDesk", q14: "expensify", q15: "projectManager",q16: "Selenium", q17: "OI",q18: "Contacts"}
 questions_list = questions.keys()
 
 #shuffling the questions
